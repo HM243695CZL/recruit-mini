@@ -1,0 +1,113 @@
+@import "../../../../base.less";
+.station-info-container{
+  height: 100%;
+  .content-box-info{
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .head-info{
+      padding-bottom: @basePadding;
+      border-bottom: 1PX solid @baseBorderColor;
+      .head{
+        .name{
+          font-weight: 700;
+          font-size: 36px;
+        }
+        .salary{
+          color: @baseColor;
+        }
+      }
+      .demand{
+        padding: @halfBasePadding 0;
+        .box{
+          flex: 1;
+        }
+        .education{
+          width: 120px;
+        }
+        .icon-box{
+          margin-right: @basePadding;
+          .icon{
+            margin-right: @halfBasePadding;
+          }
+        }
+      }
+    }
+    .publish-info, .company-info{
+      padding: @basePadding;
+      border-bottom: 1PX solid @baseBorderColor;
+      .avatar-img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: @halfBasePadding;
+      }
+      .object{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        .name{
+          font-weight: 700;
+          margin-bottom: @halfBasePadding;
+        }
+      }
+    }
+    .company-info{
+      .object{
+        .name{
+          font-weight: 400;
+        }
+      }
+    }
+    .title{
+      font-weight: 700;
+      padding: @basePadding 0;
+    }
+    .requirement{
+      font-size: @smallSize;
+      color: #555555;
+    }
+    .list{
+      font-size: @smallSize;
+      color: #555555;
+      .item{
+        padding: 10px 0;
+        line-height: 50px;
+      }
+    }
+    .tag-list{
+      padding: @halfBasePadding 0;
+      .at-tag{
+        margin-right: @halfBasePadding;
+      }
+    }
+    .map-box{
+      border-radius: 10px;
+      border: 1px solid @grayColor;
+      height: 360px;
+    }
+  }
+  .appoint-box{
+    height: 100px;
+    border-top: 1PX solid @baseBorderColor;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .collection{
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      font-size: @smallSize;
+    }
+    .appoint-btn{
+      flex: 1;
+      text-align: center;
+      background: @baseColor;
+      padding: @halfBasePadding;
+      border-radius: 10px;
+      color: @white;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "2874311",
+  "name": "yyx",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "岩鱼香",
+  "glyphs": [
+    {
+      "icon_id": "16617548",
+      "name": "pay_collect",
+      "font_class": "pay_collect",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "18991717",
+      "name": "refund",
+      "font_class": "refund",
+      "unicode": "e876",
+      "unicode_decimal": 59510
+    },
+    {
+      "icon_id": "970716",
+      "name": "order",
+      "font_class": "order",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "8575183",
+      "name": "待收货",
+      "font_class": "daishouhuo",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "109788",
+      "name": "shopping",
+      "font_class": "shopping1",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "160206",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "109762",
+      "name": "message",
+      "font_class": "message",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "646600",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
+      "icon_id": "6598339",
+      "name": "caret-down",
+      "font_class": "caret-down",
+      "unicode": "e8ec",
+      "unicode_decimal": 59628
+    },
+    {
+      "icon_id": "6598341",
+      "name": "caret-up",
+      "font_class": "caret-up",
+      "unicode": "e8ed",
+      "unicode_decimal": 59629
+    },
+    {
+      "icon_id": "10246130",
+      "name": "share",
+      "font_class": "share",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    }
+  ]
+}

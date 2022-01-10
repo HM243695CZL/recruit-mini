@@ -1,0 +1,46 @@
+@import "../../../../base.less";
+.list-item{
+  .title{
+    padding-top: @basePadding;
+    .name{
+      font-weight: 700;
+    }
+    .salary{
+      color: @baseColor;
+    }
+  }
+  .company{
+    padding: @halfBasePadding 0;
+    .number-scope{
+      padding-left: @basePadding;
+    }
+  }
+  .tag-list{
+    padding: @halfBasePadding 0;
+    .at-tag{
+      margin-right: @halfBasePadding;
+    }
+  }
+  .publish-info{
+    padding: @halfBasePadding 0;
+    .publish-user{
+      flex: 1;
+      .img-avatar{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .publish-username{
+        font-size: @smallSize;
+        padding-left: @halfBasePadding;
+        .publish-station{
+          padding-left: @halfBasePadding;
+        }
+      }
+    }
+    .place{
+      color: @grayColor;
+      font-size: @smallSize;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '../../base.less';
+.index-container{
+  width: 100%;
+  height: 100%;
+  background: @baseBgColor;
+  .search-box{
+    background: @baseColor;
+    padding: 25px 20px;
+    .input-search{
+      padding: 15px 30px;
+      border-radius: 45px;
+      background: #fff;
+      .search-placeholder{
+        padding-left: 15px;
+        color: @basePlaceholderColor;
+      }
+    }
+  }
+  .content-box{
+    margin-top: @halfBasePadding;
+    padding: @basePadding;
+    background: @white;
+    .station-head{
+      font-weight: 700;
+      padding-bottom: @basePadding;
+      border-bottom: 1PX solid @baseBorderColor;
+    }
+  }
+  .station-card{
+    margin-top: @halfBasePadding;
+    padding: @basePadding;
+    background: @white;
+  }
+  .station-list{
+    .line{
+      height: 15px;
+      background: @baseBgColor;
+    }
+  }
+}
