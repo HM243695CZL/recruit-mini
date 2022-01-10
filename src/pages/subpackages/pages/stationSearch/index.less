@@ -2,13 +2,23 @@
 .station-search-container{
   background: @white;
   height: 100%;
+  overflow-y: auto;
   .search-input{
     .at-search-bar__action{
       background: @baseColor;
     }
   }
+  .station-list-box{
+    margin-top: 90px;
+    padding:0 @basePadding @basePadding;
+    .line{
+      height: 15px;
+      background: @baseBgColor;
+    }
+  }
   .search-history{
-    padding: @basePadding;
+    margin-top: 90px;
+    padding: 0 @basePadding @basePadding;
     .title{
       font-weight: 700;
       padding: @basePadding 0;
