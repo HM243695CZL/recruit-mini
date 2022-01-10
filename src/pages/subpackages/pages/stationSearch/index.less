@@ -1,3 +1,23 @@
+@import "../../../../base.less";
 .station-search-container{
-
+  background: @white;
+  height: 100%;
+  .search-input{
+    .at-search-bar__action{
+      background: @baseColor;
+    }
+  }
+  .search-history{
+    padding: @basePadding;
+    .title{
+      font-weight: 700;
+      padding: @basePadding 0;
+    }
+    .tag-list{
+      .at-tag{
+        margin-right: @halfBasePadding;
+        margin-bottom: @halfBasePadding;
+      }
+    }
+  }
 }
