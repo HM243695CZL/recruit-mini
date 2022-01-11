@@ -1,8 +1,8 @@
 {
-  "name": "yyx",
+  "name": "recruit-mini",
   "version": "1.0.0",
   "private": true,
-  "description": "岩鱼香小程序",
+  "description": "招聘小程序",
   "templateInfo": {
     "name": "default",
     "typescript": false,
