@@ -4,8 +4,42 @@
   height: 100%;
   overflow-y: auto;
   .search-input{
-    .at-search-bar__action{
-      background: @baseColor;
+    position: relative;
+    .current-place{
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 801;
+      width: 140px;
+      height: 60px;
+      text-align: center;
+      background-color: #F7F7F7;
+      margin-top: 12px;
+      border-radius: 15PX 0 0 15PX;
+      padding-left: @basePadding;
+      .txt-box{
+        margin-top: -8px;
+        position: relative;
+        color: @baseTextColor;
+        &:after{
+          content: '';
+          position: absolute;
+          top: 22px;
+          right: 5px;
+          width: 2px;
+          height: 50%;
+          background: #c7c7c7;
+        }
+      }
+    }
+    .at-search-bar{
+      padding-left: 150px;
+      .at-search-bar__input-cnt{
+        border-radius: 0 15PX 15PX 0;
+      }
+      .at-search-bar__action{
+        background: @baseColor;
+      }
     }
   }
   .station-list-box{

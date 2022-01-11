@@ -10,6 +10,7 @@ export default {
       'pages': [
         'pages/stationInfo/index',
         'pages/stationSearch/index',
+        'pages/chooseCity/index'
       ]
     }
   ],

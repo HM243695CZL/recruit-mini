@@ -1,3 +1,4 @@
+@import "./base.less";
 page{
   height: 100%;
   background: #fafafa;
@@ -16,4 +17,24 @@ page{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.caret{
+  display: inline-block;
+  margin-top: 30px;
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+}
+.caret-top{
+  border-color: transparent transparent @grayColor transparent;
+}
+.caret-left{
+  border-color: transparent @grayColor transparent transparent;
+}
+.caret-bottom{
+  border-color: @grayColor transparent transparent transparent;
+}
+.caret-right{
+  border-color: transparent transparent transparent @grayColor;
 }

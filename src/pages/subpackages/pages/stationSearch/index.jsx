@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { View } from '@tarojs/components'
 import { AtSearchBar, AtTag } from 'taro-ui';
+import Taro, { useDidShow } from '@tarojs/taro'
 import StationList from '../../components/StationList';
 import './index.less'
 export default function User() {
   const [val, setVal] = useState('');
+  const [city, setCity] = useState('贵阳');
   const [list, setList] = useState([1, 2, 3, 4, 5]);
   const [historyList, setHistoryList] = useState(
     ['前端开发', 'web前端', '汽车销售', '中电金信', '销售']);
+  useDidShow(() => {
+    const pages = Taro.getCurrentPages();
+    const currPage = pages[pages.length - 1]; // 获取当前页面
+    if (currPage.data.selectedCity) {
+      setCity(currPage.data.selectedCity);
+    }
+  });
   const valChange = data => {
     setVal(data);
   };
@@ -17,9 +26,19 @@ export default function User() {
   const clickHistory = data => {
     setVal(data);
   };
+  const chooseCity = () => {
+    Taro.navigateTo({
+      url: '/pages/subpackages/pages/chooseCity/index'
+    })
+  };
   return (
     <View className='station-search-container'>
       <View className='search-input'>
+        <View className='current-place' onClick={chooseCity}>
+          <View className='txt-box text-over'>
+            {city} <View className='caret caret-bottom' />
+          </View>
+        </View>
         <AtSearchBar
           showActionButton
           placeholder='搜索职位、公司'
