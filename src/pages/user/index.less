@@ -3,4 +3,41 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  background: @baseBgColor;
+  .head-card{
+    height: 160px;
+    background: @baseColor;
+    padding: @basePadding;
+    .left{
+      color: @white;
+      .name{
+        font-size: 50px;
+        margin-bottom: @halfBasePadding;
+      }
+      .online-resume{
+        .edit-icon{
+          margin-right: @halfBasePadding;
+        }
+      }
+    }
+    .img-avatar{
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+  }
+  .tab-list{
+    padding: @basePadding;
+    .box{
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      font-size: 26px;
+      .tab-icon{
+        margin-bottom: @halfBasePadding;
+      }
+    }
+  }
 }
