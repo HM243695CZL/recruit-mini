@@ -1,0 +1,87 @@
+@import "../../../../base.less";
+.appoint-info-container{
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  background: @baseBgColor;
+  .head{
+    height: 260px;
+    background: @baseColor;
+  }
+  .info-box{
+    position: absolute;
+    top: 60px;
+    left: @basePadding;
+    box-sizing: border-box;
+    width: calc(100% - 2 * @basePadding);
+    .content-box{
+      background: @white;
+      padding: @basePadding;
+      border-radius: 10px;
+      .company-info{
+        padding-bottom: @basePadding;
+        border-bottom: 1PX solid @baseBorderColor;
+        .company-icon{
+          width: 100px;
+          height: 100px;
+        }
+        .name{
+          flex: 1;
+          padding-left: @halfBasePadding;
+          .hr-info{
+            font-size: @smallSize;
+            margin-top: @halfBasePadding;
+            .hr-avatar{
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              margin-right: @halfBasePadding;
+            }
+          }
+        }
+      }
+      .info-list{
+        .item{
+          padding: @halfBasePadding 0;
+          .key{
+            color: @baseTextColor;
+            width: 120px;
+          }
+          .value{
+            flex: 1;
+            .call{
+              padding: @halfBasePadding @basePadding;
+              border: 1PX solid @baseColor;
+              margin-left: @halfBasePadding;
+              border-radius: 10px;
+              color: @baseColor;
+              font-size: @smallSize;
+            }
+          }
+        }
+        .map-box{
+          margin: @basePadding 0;
+          border-radius: 10px;
+          border: 1px solid @grayColor;
+          height: 240px;
+        }
+      }
+    }
+    .process{
+      margin: @basePadding 0;
+      background: @white;
+      padding: @basePadding;
+      border-radius: 10px;
+      box-sizing: border-box;
+      .title{
+        font-weight: 700;
+        margin-bottom: @basePadding;
+      }
+      .at-steps{
+        .at-steps__item--active .at-steps__circular{
+          background-color: @baseColor;
+        }
+      }
+    }
+  }
+}

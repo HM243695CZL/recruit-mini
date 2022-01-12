@@ -1,0 +1,32 @@
+@import "../../../../base.less";
+.appointment-list{
+  padding: @basePadding 0;
+  border-bottom: 1PX solid @baseBorderColor;
+  &:last-child{
+    border: none;
+  }
+  .img-avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: @basePadding;
+  }
+  .info{
+    flex: 1;
+    padding-left: @halfBasePadding;
+    .company-name{
+      font-weight: 700;
+      color: @black;
+      margin-bottom: @halfBasePadding;
+    }
+    .detail{
+      color: @baseTextColor;
+      font-size: @smallSize;
+      .station-txt{
+        flex: 1;
+      }
+      .time{
+        width: 200px;
+      }
+    }
+  }
+}
