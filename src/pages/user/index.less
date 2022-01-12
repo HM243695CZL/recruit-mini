@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: @baseBgColor;
+  background: @white;
   .head-card{
     height: 160px;
     background: @baseColor;
@@ -39,5 +39,41 @@
         margin-bottom: @halfBasePadding;
       }
     }
+  }
+  .icon-list{
+    margin-top: @basePadding;
+    padding: 0 @basePadding;
+    background: @white;
+    .item-box{
+      padding: @basePadding 0;
+      border-bottom: 1PX solid @baseBorderColor;
+      &:last-child{
+        border-bottom: none;
+      }
+      .left{
+        flex: 2;
+        .txt{
+          margin-left: @basePadding;
+        }
+      }
+    }
+  }
+  .logout-btn{
+    margin-top: @basePadding;
+    padding: @basePadding;
+    .logout{
+      border-radius: 10px;
+      padding: @basePadding 0;
+      text-align: center;
+      background: #f5f5f5;
+      color: @baseTextColor;
+    }
+  }
+  .technical-support{
+    color: @baseTextColor;
+    text-align: center;
+    height: 200px;
+    line-height: 200px;
+    font-size: 24px;
   }
 }
