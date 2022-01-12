@@ -12,7 +12,7 @@ export default function StationInfo(){
           <AtIcon value='star-2' size='20' color='#787878' />
           收藏
         </View>
-        <View className='appoint-btn'>立即预约</View>
+        <View className='appoint-btn'>立即沟通</View>
       </View>
     )
   };
@@ -21,8 +21,8 @@ export default function StationInfo(){
       <View className='content-box-info'>
         <View className='head-info'>
           <View className='head flex-between'>
-            <Text className='name'>Java开发工程师</Text>
-            <Text className='salary'>4-8K</Text>
+            <Text className='name'>前端高级工程师</Text>
+            <Text className='salary'>22-25K</Text>
           </View>
           <View className='demand flex-between'>
             <View className='box text-over flex-start'>

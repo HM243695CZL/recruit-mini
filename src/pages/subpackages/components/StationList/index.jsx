@@ -13,7 +13,7 @@ export default function StationList(props){
     <View className='list-item' onClick={showInfo}>
       <View className='title flex-between'>
         <Text className='name'>web前端开发工程师</Text>
-        <Text className='salary'>8-12K</Text>
+        <Text className='salary'>22-25K</Text>
       </View>
       <View className='company'>
         贵州深医科技 <Text className='number-scope'>20-99人</Text>
