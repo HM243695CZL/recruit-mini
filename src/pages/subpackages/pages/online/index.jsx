@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text } from '@tarojs/components'
 import './index.less'
 
-export default function Recruit(){
+export default function Online(){
   return (
-    <View className='recruit-container'>
-      我要招聘
+    <View className='online-container'>
+      在线简历
     </View>
   )
 }

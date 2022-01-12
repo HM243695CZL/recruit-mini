@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import {Image, View, Text} from '@tarojs/components'
 import {AtIcon} from 'taro-ui';
+import Taro from '@tarojs/taro';
 import './index.less'
 
 export default function User() {
   const [tabList] = useState([
-    { text: '在线简历' },
-    { text: '附件简历' },
-    { text: '我的预约' },
+    { text: '在线简历', value: 'online' },
+    { text: '附件简历', value: 'enclosure' },
+    { text: '我的预约', value: 'appointment' },
   ]);
   const [iconList] = useState([
     { icon: 'star', text: '我的收藏' },
     { icon: 'star', text: '意见反馈' },
   ]);
+  const clickTab = data => {
+    Taro.navigateTo({
+      url: `/pages/subpackages/pages/${data.value}/index`
+    })
+  };
   return (
     <View className='user-container'>
       <View className="head-card flex-between">
@@ -29,7 +35,7 @@ export default function User() {
         {
           tabList.map(item => {
             return (
-              <View className="box">
+              <View className="box" onClick={e => clickTab(item)}>
                 <AtIcon className='tab-icon' value='file-jpg' size='32' color='#fdb63a' />
                 {item.text}
               </View>
