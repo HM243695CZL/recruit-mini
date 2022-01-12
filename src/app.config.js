@@ -15,6 +15,8 @@ export default {
         'pages/enclosure/index',
         'pages/appointment/index',
         'pages/appointInfo/index',
+        'pages/collection/index',
+        'pages/advise/index',
       ]
     }
   ],

@@ -11,8 +11,8 @@ export default function User() {
     { text: '我的预约', value: 'appointment' },
   ]);
   const [iconList] = useState([
-    { icon: 'star', text: '我的收藏' },
-    { icon: 'star', text: '意见反馈' },
+    { icon: 'star', text: '我的收藏', value: 'collection' },
+    { icon: 'alert-circle', text: '意见反馈', value: 'advise' },
   ]);
   const clickTab = data => {
     Taro.navigateTo({
@@ -47,7 +47,7 @@ export default function User() {
         {
           iconList.map(item => {
             return (
-              <View className='item-box flex-between'>
+              <View className='item-box flex-between' onClick={e => clickTab(item)}>
                 <View className='left flex-start'>
                   <AtIcon value={item.icon} size='20' color='#787878' />
                   <Text className='txt'>{item.text}</Text>
