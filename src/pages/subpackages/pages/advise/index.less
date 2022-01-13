@@ -1,3 +1,64 @@
+@import "../../../../base.less";
 .advise-container{
-
+  width: 100%;
+  height: 100%;
+  padding: @basePadding;
+  background: @white;
+  box-sizing: border-box;
+  .textarea-box{
+    width: 100%;
+    border: 1PX solid @baseBorderColor;
+    padding: @basePadding;
+    box-sizing: border-box;
+  }
+  .screen-shot{
+    .head{
+      font-weight: 700;
+      padding: @basePadding;
+    }
+    .file-list{
+      .already-img{
+        .img-box{
+          padding-right: @basePadding;
+          &:last-child{
+            padding-right: 0;
+          }
+          .img{
+            width: 150px;
+            height: 150px;
+          }
+        }
+        .upload{
+          width: 150px;
+          height: 150px;
+          background: #f7f7f7;
+          border: 1PX solid @baseBorderColor;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+  .connect{
+    margin-top: @basePadding;
+    border-top: 1PX solid @baseBorderColor;
+    .at-input{
+      margin-left: 0;
+    }
+  }
+  .sub-btn{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .sub{
+      width: 50%;
+      padding: @halfBasePadding 0;
+      background: @baseColor;
+      border-radius: 10px;
+      color: @white;
+      text-align: center;
+    }
+  }
 }
