@@ -18,6 +18,7 @@ export default {
         'pages/collection/index',
         'pages/advise/index',
         'pages/previewEnclosure/index',
+        'pages/communicateRecord/index',
       ]
     }
   ],

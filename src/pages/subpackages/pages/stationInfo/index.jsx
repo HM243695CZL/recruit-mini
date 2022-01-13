@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, Image } from '@tarojs/components'
 import {AtIcon, AtTag } from 'taro-ui';
+import Taro from '@tarojs/taro';
 import './index.less'
 export default function StationInfo(){
   const [dutyList, setDutyList] = useState([1, 2, 3]);
   const [list, setList] = useState([1, 2, 3]);
+  const clickCommunicate = () => {
+    Taro.navigateTo({
+      url: '/pages/subpackages/pages/communicateRecord/index'
+    })
+  };
   const AppointBox = () => {
     return (
       <View className='appoint-box flex-start'>
@@ -12,7 +18,7 @@ export default function StationInfo(){
           <AtIcon value='star-2' size='20' color='#787878' />
           收藏
         </View>
-        <View className='appoint-btn'>立即沟通</View>
+        <View className='appoint-btn' onClick={clickCommunicate}>立即沟通</View>
       </View>
     )
   };
