@@ -1,0 +1,18 @@
+@import "../../../../base.less";
+.enclosure-list{
+  padding: @basePadding 0;
+  border-bottom: 1PX solid @baseBorderColor;
+  .left{
+    .info{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding-left: @halfBasePadding;
+      .detail{
+        margin-top: @halfBasePadding;
+        color: @grayColor;
+        font-size: @smallSize;
+      }
+    }
+  }
+}
