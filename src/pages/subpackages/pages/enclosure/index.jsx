@@ -3,7 +3,6 @@ import { View, Text } from '@tarojs/components'
 import { AtIcon } from 'taro-ui';
 import EnclosureList from '../../components/EnclosureList';
 import './index.less'
-
 export default function Enclosure(){
   const [list] = useState([1, 2, 3]);
   return (
@@ -16,6 +15,9 @@ export default function Enclosure(){
         {
           list.map(item => <EnclosureList />)
         }
+      </View>
+      <View className='upload-new-file'>
+        <View className='upload-enclosure'>上传新附件</View>
       </View>
     </View>
   )

@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  position: relative;
   .tip{
     padding: @basePadding;
     background: #fff5ec;
@@ -10,5 +11,20 @@
   }
   .enclosure-box{
     padding: @basePadding;
+  }
+  .upload-new-file{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .upload-enclosure{
+      padding: @halfBasePadding 0;
+      background: @baseColor;
+      color: @white;
+      border-radius: 10px;
+      text-align: center;
+    }
   }
 }
