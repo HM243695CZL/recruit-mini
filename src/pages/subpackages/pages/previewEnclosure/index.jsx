@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image} from '@tarojs/components'
 import './index.less'
 
-export default function Recruit(){
+export default function previewEnclosure(){
   return (
     <View className='preview-enclosure-container'>
       <Image className='img-avatar'

@@ -4,7 +4,7 @@ import { AtIndexes, AtTag } from 'taro-ui'
 import Taro from '@tarojs/taro'
 import './index.less'
 
-export default function User() {
+export default function chooseCity() {
 
   const [list] = useState([
     {

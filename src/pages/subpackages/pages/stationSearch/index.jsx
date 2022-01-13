@@ -4,7 +4,7 @@ import { AtSearchBar, AtTag } from 'taro-ui';
 import Taro, { useDidShow } from '@tarojs/taro'
 import StationList from '../../components/StationList';
 import './index.less'
-export default function User() {
+export default function stationSearch() {
   const [val, setVal] = useState('');
   const [city, setCity] = useState('贵阳');
   const [list, setList] = useState([1, 2, 3, 4, 5]);
