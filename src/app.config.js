@@ -22,6 +22,12 @@ export default {
         'pages/previewEnclosure/index',
         'pages/communicateRecord/index',
       ]
+    },
+    {
+      'root': 'pages/subOnline',
+      'pages': [
+        'pages/personInfo/index'
+      ]
     }
   ],
   tabBar: {

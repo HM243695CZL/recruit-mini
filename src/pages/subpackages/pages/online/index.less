@@ -1,3 +1,29 @@
+@import "../../../../base.less";
 .online-container{
-
+  height: 100%;
+  padding: @basePadding;
+  box-sizing: border-box;
+  overflow: auto;
+  .user-info{
+    border-bottom: 1PX solid @baseBorderColor;
+    padding-bottom: @basePadding;
+    .left{
+      .head{
+        margin-bottom: @halfBasePadding;
+        .user-name{
+          font-weight: 700;
+          font-size: 50px;
+          margin-right: @halfBasePadding;
+        }
+      }
+      .exp{
+        color: @baseTextColor;
+      }
+    }
+    .img-avatar{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+  }
 }
