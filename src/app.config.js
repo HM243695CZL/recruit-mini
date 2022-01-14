@@ -26,7 +26,9 @@ export default {
     {
       'root': 'pages/subOnline',
       'pages': [
-        'pages/personInfo/index'
+        'pages/personInfo/index',
+        'pages/personAdvantage/index',
+        'pages/jobStatus/index',
       ]
     }
   ],
