@@ -1,3 +1,113 @@
+@import "../../../../base.less";
+@gridHeight: 190px;
+@sendMsgInputHeight: 100px;
 .communicate-record-container{
-
+  height: 100%;
+  .grid-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: @white;
+    height: @gridHeight;
+  }
+  .message-list-box{
+    //height: calc(100% - @gridHeight - @sendMsgInputHeight);
+    padding: @gridHeight @basePadding @sendMsgInputHeight;
+    box-sizing: border-box;
+    overflow: auto;
+    .list-item{
+      margin-bottom: @basePadding;
+      .time{
+        text-align: center;
+        color: @grayColor;
+        padding: @basePadding;
+      }
+    }
+    .send-box{
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+      .send-message{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: @halfBasePadding;
+        width: 100%;
+        .message{
+          max-width: calc(100% - 220px);
+          padding: @basePadding;
+          background: @baseColor;
+          box-sizing: border-box;
+          color: @white;
+          border-radius: 10px 10px 0 10px;
+        }
+        .img-avatar{
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin-left: @basePadding;
+          background: @white;
+        }
+      }
+      .status{
+        color: @grayColor;
+        font-size: @smallSize;
+        margin-right: 110px;
+      }
+    }
+    .receive-box{
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      .receive-message{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: @halfBasePadding;
+        .message{
+          max-width: calc(100% - 220px);
+          padding: @basePadding;
+          background: @white;
+          box-sizing: border-box;
+          color: @black;
+          border-radius: 10px 10px 10px 0;
+        }
+        .img-avatar{
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin-right: @basePadding;
+          background: @white;
+        }
+      }
+    }
+  }
+  .send-message-input{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: @sendMsgInputHeight;
+    z-index: 10;
+    box-sizing: border-box;
+    padding: @halfBasePadding;
+    background: @white;
+    border-top: 1PX solid @baseBorderColor;
+    .at-input{
+      margin-left: 0;
+      padding: @halfBasePadding;
+      flex: 1;
+      border-radius: 10px;
+    }
+    .at-button{
+      margin-left: @basePadding;
+      width: 100px;
+      background: @baseColor;
+      border-color: @baseColor;
+    }
+  }
 }
