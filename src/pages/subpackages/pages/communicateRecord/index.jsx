@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Image } from '@tarojs/components'
 import { AtGrid, AtInput, AtButton } from 'taro-ui';
-import Taro from '@tarojs/taro';
+import Taro, { useReady } from '@tarojs/taro';
 import './index.less'
 
 export default function communicateRecord(){
@@ -54,6 +54,15 @@ export default function communicateRecord(){
   const changeInput = value => {
     setVal(value);
   };
+  const scrollPageBottom = () => {
+    const boxRef = Taro.createSelectorQuery().select('#communicateBoxRef').boundingClientRect();
+    boxRef.exec(function (res) {
+      Taro.pageScrollTo({
+        duration: 300,
+        scrollTop: res[0].height
+      })
+    });
+  };
   const sendMessage = () => {
     const hours = new Date().getHours() >= 10 ? new Date().getHours() :
       '0' + new Date().getHours();
@@ -78,15 +87,12 @@ export default function communicateRecord(){
       text: val,
       isRead: false
     }]);
-    const boxRef = Taro.createSelectorQuery().select('#communicateBoxRef').boundingClientRect();
-    boxRef.exec(function (res) {
-      Taro.pageScrollTo({
-        duration: 300,
-        scrollTop: res[0].height
-      })
-    });
+    scrollPageBottom();
     setVal('');
   };
+  useReady(() => {
+    scrollPageBottom();
+  });
   return (
     <View className='communicate-record-container' id='communicateBoxRef'>
       <View className='grid-box'>
