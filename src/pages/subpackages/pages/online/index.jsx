@@ -23,6 +23,11 @@ export default function Online(){
       url: '/pages/subOnline/pages/jobStatus/index'
     })
   };
+  const clickJobExcept = type => {
+    Taro.navigateTo({
+      url: '/pages/subOnline/pages/jobExcept/index?type=' + type
+    })
+  };
   return (
     <View className='online-container'>
       <View className='user-info flex-between' onClick={clickPersonInfo}>
@@ -49,6 +54,27 @@ export default function Online(){
         <View className='status-want'>
           <Text className='status-want-txt'>在职-暂不考虑</Text>
           <AtIcon value='chevron-right' size='16' color='#787878' />
+        </View>
+      </View>
+      <View className='job-except'>
+        <View className='head flex-between'>
+          <View className='left'>
+            <Text className='except'>求职期望</Text>
+            <AtIcon value='help' size='16' color='#000' />
+          </View>
+          <AtIcon value='add-circle' size='16' color='#000' onClick={e => clickJobExcept('add')} />
+        </View>
+        <View className='station-info' onClick={e => clickJobExcept('edit')}>
+          <View className='flex-between'>
+            <View className='salary'>
+              web前端 <Text className='text'>22-25K</Text>
+            </View>
+            <AtIcon value='chevron-right' size='16' color='#787878' />
+          </View>
+          <View className='place'>
+            贵阳
+            <Text className='type'>互联网</Text>
+          </View>
         </View>
       </View>
     </View>

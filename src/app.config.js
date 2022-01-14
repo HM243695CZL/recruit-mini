@@ -29,6 +29,7 @@ export default {
         'pages/personInfo/index',
         'pages/personAdvantage/index',
         'pages/jobStatus/index',
+        'pages/jobExcept/index',
       ]
     }
   ],
