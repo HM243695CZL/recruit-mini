@@ -30,6 +30,7 @@ export default {
         'pages/personAdvantage/index',
         'pages/jobStatus/index',
         'pages/jobExcept/index',
+        'pages/workExperience/index',
       ]
     }
   ],

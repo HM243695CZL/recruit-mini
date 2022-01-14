@@ -77,6 +77,22 @@ export default function Online(){
           </View>
         </View>
       </View>
+      <View className='work-experience'>
+        <View className='head flex-between'>
+          <Text className='experience'>工作经历</Text>
+          <AtIcon value='add-circle' size='16' color='#000'/>
+        </View>
+        <View className='experience-list'>
+          <View className='title flex-between'>
+            <Text className='company-name'>某某某股份有限公司</Text>
+            <View className='duration'>
+              <Text className='duration-txt'>2019.07-至今</Text>
+              <AtIcon value='chevron-right' size='16' color='#787878' />
+            </View>
+          </View>
+          <View className='station-name'>web前端</View>
+        </View>
+      </View>
     </View>
   )
 }
