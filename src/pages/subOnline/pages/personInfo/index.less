@@ -1,0 +1,68 @@
+@import "../../../../base.less";
+@saveBtnHeight: 100px;
+.person-info-container{
+  background: @white;
+  height: 100%;
+  .info-box{
+    height: calc(100% - @saveBtnHeight - @basePadding);
+    overflow: auto;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .avatar{
+      padding: @basePadding 0;
+      border-bottom: 1PX solid @baseBorderColor;
+      .img-avatar{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+    }
+    .property{
+      padding: @basePadding 0;
+      border-bottom: 1PX solid @baseBorderColor;
+      .at-input{
+        margin-left: 0;
+        text-align: right;
+        &::after{
+          border: none;
+        }
+      }
+      .radio-box{
+        border: 1PX solid @baseColor;
+        border-radius: 10px;
+        .radio{
+          width: 140px;
+          padding: @halfBasePadding 0;
+          color: @baseColor;
+          text-align: center;
+        }
+        .active{
+          background: @baseColor;
+          color: @white;
+        }
+      }
+    }
+    .law-tip{
+      padding: @halfBasePadding 0;
+      font-size: 20px;
+      color: @baseTextColor;
+      line-height: 1.8;
+    }
+  }
+  .btn-box{
+    background: @white;
+    box-sizing: border-box;
+    padding: @halfBasePadding @basePadding;
+    .save-btn{
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      border-radius: 10px;
+      background: @baseColor;
+      padding: @halfBasePadding 0;
+      color: @white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

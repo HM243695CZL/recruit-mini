@@ -14,6 +14,11 @@ export default function User() {
     { icon: 'star', text: '我的收藏', value: 'collection' },
     { icon: 'alert-circle', text: '意见反馈', value: 'advise' },
   ]);
+  const clickHeadCard = () => {
+    Taro.navigateTo({
+      url: '/pages/subpackages/pages/online/index'
+    })
+  };
   const clickTab = data => {
     Taro.navigateTo({
       url: `/pages/subpackages/pages/${data.value}/index`
@@ -21,7 +26,7 @@ export default function User() {
   };
   return (
     <View className='user-container'>
-      <View className="head-card flex-between">
+      <View className="head-card flex-between" onClick={e => clickHeadCard()}>
         <View className="left">
           <View className="name">张三</View>
           <View className="online-resume">

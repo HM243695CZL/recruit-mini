@@ -1,14 +1,13 @@
 @import "../../../../base.less";
 @generatorBtnHeight: 100px;
 .online-container{
-  padding: @basePadding;
-  box-sizing: border-box;
   background: @white;
   height: 100%;
   .box{
     height: calc(100% - @generatorBtnHeight - @basePadding);
     overflow: auto;
-    padding-bottom: @basePadding;
+    box-sizing: border-box;
+    padding: @basePadding;
     .user-info{
       border-bottom: 1PX solid @baseBorderColor;
       padding-bottom: @basePadding;
@@ -148,7 +147,7 @@
   }
   .generator-btn{
     box-sizing: border-box;
-    padding: @halfBasePadding 0;
+    padding: @halfBasePadding @basePadding;
     background: @white;
     .btn-text{
       box-sizing: border-box;
