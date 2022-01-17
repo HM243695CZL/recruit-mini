@@ -31,6 +31,9 @@ export default {
         'pages/jobStatus/index',
         'pages/jobExcept/index',
         'pages/workExperience/index',
+        'pages/projectExperience/index',
+        'pages/eduExperience/index',
+        'pages/onlineResume/index',
       ]
     }
   ],
