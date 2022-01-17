@@ -170,7 +170,9 @@ export default function Online(){
         </View>
         <View className='preview-resume-btn' onClick={e => clickPreviewResume()}>预览我的简历</View>
       </View>
-      <View className='generator-btn'>生成简历</View>
+      <View className='generator-btn'>
+        <View className='btn-text'>生成简历</View>
+      </View>
     </View>
   )
 }

@@ -6,7 +6,7 @@
   background: @white;
   height: 100%;
   .box{
-    height: calc(100% - @generatorBtnHeight);
+    height: calc(100% - @generatorBtnHeight - @basePadding);
     overflow: auto;
     padding-bottom: @basePadding;
     .user-info{
@@ -120,7 +120,6 @@
           color: @baseTextColor;
         }
         .content{
-          color: @baseTextColor;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
@@ -149,11 +148,18 @@
   }
   .generator-btn{
     box-sizing: border-box;
-    height: @generatorBtnHeight;
-    border-radius: 10px;
-    padding: @basePadding 0;
-    background: @baseColor;
-    text-align: center;
-    color: @white;
+    padding: @halfBasePadding 0;
+    background: @white;
+    .btn-text{
+      box-sizing: border-box;
+      height: @generatorBtnHeight;
+      border-radius: 10px;
+      background: @baseColor;
+      padding: @halfBasePadding 0;
+      color: @white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

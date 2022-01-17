@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '我的在线简历'
+  navigationBarTitleText: '在线简历预览'
 }

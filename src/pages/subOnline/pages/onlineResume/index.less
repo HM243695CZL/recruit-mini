@@ -1,0 +1,147 @@
+@import "../../../../base.less";
+.online-resume-container{
+  padding: @basePadding;
+  box-sizing: border-box;
+  background: @white;
+  height: 100%;
+  overflow: auto;
+  .user-info{
+    border-bottom: 1PX solid @baseBorderColor;
+    padding-bottom: @basePadding;
+    .left{
+      .head{
+        margin-bottom: @halfBasePadding;
+        .user-name{
+          font-weight: 700;
+          font-size: 50px;
+          margin-right: @halfBasePadding;
+        }
+      }
+      .station{
+        color: @baseTextColor;
+      }
+    }
+    .img-avatar{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+  }
+  .person-intro{
+    border-bottom: 1PX solid @baseBorderColor;
+    padding: @basePadding 0;
+    position: relative;
+    .job-status{
+      padding: @halfBasePadding 0;
+    }
+    .person-info{
+      padding: @halfBasePadding 0;
+      margin-bottom: @halfBasePadding;
+      .icon{
+        margin-left: @basePadding;
+        margin-right: @halfBasePadding;
+        &:first-child{
+          margin-left: 0;
+        }
+      }
+    }
+    .person-evaluate{
+      .evaluate-list{
+        padding-bottom: @halfBasePadding;
+        line-height: 1.8;
+        white-space: pre-wrap;
+      }
+    }
+    .show-all{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: @baseColor;
+      padding: @halfBasePadding 0;
+      background-image: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, 1));
+    }
+  }
+  .truncation{
+    height: 480px;
+    overflow: hidden;
+  }
+  .person-item{
+    .head{
+      padding: @halfBasePadding 0;
+      position: relative;
+      &:before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -@halfBasePadding;
+        margin-top: -5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: @baseColor;
+      }
+    }
+  }
+  .job-except, .edu-experience{
+    border-bottom: 1PX solid @baseBorderColor;
+    padding: @basePadding 0;
+    .station-info{
+      margin-top: @halfBasePadding;
+      margin-bottom: @halfBasePadding;
+      .station-name{
+        font-weight: 700;
+      }
+      .salary{
+        font-weight: 700;
+        color: @baseColor;
+      }
+      .time{
+        color: @baseTextColor;
+      }
+      .major{
+        color: @baseTextColor;
+        font-size: @smallSize;
+      }
+    }
+    .station-type{
+      color: @baseTextColor;
+    }
+  }
+  .work-experience, .project-experience{
+    border-bottom: 1PX solid @baseBorderColor;
+    padding: @basePadding 0;
+    .experience-list{
+      padding-top: @basePadding;
+      .title{
+        .company-name{
+          font-weight: 700;
+        }
+        .duration{
+          color: @baseTextColor;
+          font-size: @smallSize;
+        }
+      }
+      .station-name{
+        padding: @halfBasePadding 0;
+        color: @baseTextColor;
+      }
+      .content{
+        line-height: 1.8;
+      }
+      .skill-tag{
+        padding: @halfBasePadding 0;
+        .at-tag{
+          margin-bottom: @halfBasePadding;
+          margin-right: @halfBasePadding;
+          background: @white;
+        }
+      }
+    }
+    .show-all-project{
+      padding: @halfBasePadding 0;
+      color: @baseColor;
+    }
+  }
+}
