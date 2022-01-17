@@ -1,3 +1,45 @@
+@import "../../../../base.less";
+@saveBtnHeight: 100px;
 .person-advantage-container{
-
+  background: @white;
+  height: 100%;
+  .advantage-box{
+    height: calc(100% - @saveBtnHeight - @basePadding);
+    overflow: auto;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .head{
+      .title{
+        font-weight: 700;
+        font-size: 44px;
+        margin-bottom: @halfBasePadding;
+      }
+    }
+    .content{
+      padding-top: @basePadding;
+      .at-textarea{
+        padding: 0;
+        border: none;
+        textarea{
+          line-height: 1.8;
+        }
+      }
+    }
+  }
+  .btn-box{
+    background: @white;
+    box-sizing: border-box;
+    padding: @halfBasePadding @basePadding;
+    .save-btn{
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      border-radius: 10px;
+      background: @baseColor;
+      padding: @halfBasePadding 0;
+      color: @white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
