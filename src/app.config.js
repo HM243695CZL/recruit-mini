@@ -28,7 +28,6 @@ export default {
       'pages': [
         'pages/personInfo/index',
         'pages/personAdvantage/index',
-        'pages/jobStatus/index',
         'pages/jobExcept/index',
         'pages/workExperience/index',
         'pages/projectExperience/index',

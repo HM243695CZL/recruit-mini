@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image } from '@tarojs/components'
-import { AtIcon, AtTag } from 'taro-ui';
+import { AtIcon, AtTag, AtFloatLayout } from 'taro-ui';
 import Taro from '@tarojs/taro';
 import './index.less'
 
@@ -8,6 +8,14 @@ export default function Online(){
   const [advantageList] = useState([
     '适应潜力强。一般来说，我对生活和环境的适应潜力比较强，不怎么挑剔适应潜力强。'
   ]);
+  const [isOpened, setIsOpened] = useState(false);
+  const [statusList] = useState([
+    { text: '离职-随时到岗', value: 1 },
+    { text: '在职-月内到岗', value: 2 },
+    { text: '在职-考虑机会', value: 3 },
+    { text: '在职-暂不考虑', value: 4 },
+  ]);
+  const [currentStatus, setCurrentStatus] = useState(1);
   const clickPersonInfo = () => {
     Taro.navigateTo({
       url: '/pages/subOnline/pages/personInfo/index'
@@ -19,9 +27,14 @@ export default function Online(){
     })
   };
   const clickJobStatus = () => {
-    Taro.navigateTo({
-      url: '/pages/subOnline/pages/jobStatus/index'
-    })
+    setIsOpened(true);
+  };
+  const changeStatus = item => {
+    setCurrentStatus(item.value);
+    closeLayout();
+  };
+  const closeLayout = () => {
+    setIsOpened(false);
   };
   const clickJobExcept = type => {
     Taro.navigateTo({
@@ -73,7 +86,11 @@ export default function Online(){
         <View className='job-status flex-between' onClick={clickJobStatus}>
           <Text className='job-head'>求职状态</Text>
           <View className='status-want'>
-            <Text className='status-want-txt'>在职-暂不考虑</Text>
+            <Text className='status-want-txt'>
+              {
+                statusList.filter(item => item.value === currentStatus)[0].text
+              }
+            </Text>
             <AtIcon value='chevron-right' size='16' color='#787878' />
           </View>
         </View>
@@ -173,6 +190,18 @@ export default function Online(){
       <View className='generator-btn'>
         <View className='btn-text'>生成简历</View>
       </View>
+      <AtFloatLayout
+        isOpened={isOpened}
+        onClose={e => closeLayout()}
+      >
+        <View className='layout-container'>
+          <View className='title'>求职状态</View>
+          {
+            statusList.map(item => <View className='status-list' onClick={e => changeStatus(item)}>{item.text}</View>)
+          }
+          <View className='cancel' onClick={e => closeLayout()}>取消</View>
+        </View>
+      </AtFloatLayout>
     </View>
   )
 }
