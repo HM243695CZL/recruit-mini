@@ -34,6 +34,7 @@ export default {
         'pages/eduExperience/index',
         'pages/onlineResume/index',
         'pages/stationType/index',
+        'pages/industryType/index',
       ]
     }
   ],
