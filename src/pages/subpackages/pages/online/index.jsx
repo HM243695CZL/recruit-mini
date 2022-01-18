@@ -98,7 +98,6 @@ export default function Online(){
           <View className='head flex-between'>
             <View className='left'>
               <Text className='except'>求职期望</Text>
-              <AtIcon value='help' size='16' color='#000' />
             </View>
             <AtIcon value='add-circle' size='16' color='#000' onClick={e => clickJobExcept('add')} />
           </View>

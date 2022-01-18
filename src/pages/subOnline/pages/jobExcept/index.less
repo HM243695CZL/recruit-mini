@@ -1,0 +1,80 @@
+@import "../../../../base.less";
+@saveBtnHeight: 100px;
+.job-except-container{
+  background: @white;
+  height: 100%;
+  .except-box{
+    height: calc(100% - @saveBtnHeight - @basePadding);
+    overflow: auto;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .head{
+      margin-bottom: @basePadding;
+      .title{
+        font-weight: 700;
+        font-size: 44px;
+        margin-bottom: @halfBasePadding;
+      }
+    }
+    .property{
+      padding: @basePadding 0;
+      border-bottom: 1PX solid @baseBorderColor;
+      .radio-box{
+        border: 1PX solid @baseColor;
+        border-radius: 10px;
+        .radio{
+          width: 140px;
+          padding: @halfBasePadding 0;
+          color: @baseColor;
+          text-align: center;
+        }
+        .active{
+          background: @baseColor;
+          color: @white;
+        }
+      }
+      .at-input{
+        margin-left: 0;
+        text-align: right;
+        &::after{
+          border: none;
+        }
+      }
+      .right{
+        .right-icon{
+          margin-left: @halfBasePadding;
+        }
+      }
+    }
+  }
+  .btn-box{
+    border-top: 1PX solid @baseBorderColor;
+    background: @white;
+    box-sizing: border-box;
+    padding: @halfBasePadding @basePadding;
+    .delete-btn{
+      flex: 1;
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: @baseBtnBgColor;
+      color: @black;
+      border-radius: 10px;
+      margin-right: @basePadding;
+    }
+    .save-btn{
+      flex: 3;
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      border-radius: 10px;
+      background: @baseColor;
+      padding: @halfBasePadding 0;
+      color: @white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

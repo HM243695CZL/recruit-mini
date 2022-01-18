@@ -7,8 +7,8 @@ import './index.less'
 export default function stationSearch() {
   const [val, setVal] = useState('');
   const [city, setCity] = useState('贵阳');
-  const [list, setList] = useState([1, 2, 3, 4, 5]);
-  const [historyList, setHistoryList] = useState(
+  const [list] = useState([1, 2, 3, 4, 5]);
+  const [historyList] = useState(
     ['前端开发', 'web前端', '汽车销售', '中电金信', '销售']);
   useDidShow(() => {
     const pages = Taro.getCurrentPages();

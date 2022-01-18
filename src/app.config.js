@@ -33,6 +33,7 @@ export default {
         'pages/projectExperience/index',
         'pages/eduExperience/index',
         'pages/onlineResume/index',
+        'pages/stationType/index',
       ]
     }
   ],

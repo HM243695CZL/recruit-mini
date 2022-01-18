@@ -1,0 +1,67 @@
+@import "../../../../base.less";
+@typeListMarginTop: 90px;
+.station-type-container{
+  background: @white;
+  height: 100%;
+  overflow: hidden;
+  .at-search-bar{
+    .at-search-bar__action{
+      background: @baseColor;
+    }
+  }
+  .type-list-box{
+    margin-top: @typeListMarginTop;
+    height: calc(100% - @typeListMarginTop);
+    .type-left{
+      flex: 1;
+      border-right: 1PX solid @baseBorderColor;
+      overflow: auto;
+      height: 100%;
+      .item-name{
+        padding: @halfBasePadding @basePadding;
+        &.active{
+          color: @baseColor;
+          position: relative;
+          &::before{
+            content: '';
+            position: absolute;
+            top: @halfBasePadding;
+            left: 0;
+            width: 10px;
+            height: calc(100% - @halfBasePadding * 2);
+            background: @baseColor;
+          }
+        }
+      }
+    }
+    .type-right{
+      flex: 3;
+      padding: @halfBasePadding;
+      overflow: auto;
+      height: 100%;
+      .right-box{
+        .station-name{
+          padding: @halfBasePadding;
+          font-weight: 700;
+        }
+        .station-list{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          .station-list-item{
+            width: 50%;
+            padding: @halfBasePadding;
+            box-sizing: border-box;
+            text-align: center;
+            .item-txt{
+              border-radius: 10px;
+              background: @baseBorderColor;
+              padding: @halfBasePadding;
+            }
+          }
+        }
+      }
+    }
+  }
+}
