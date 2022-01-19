@@ -1,0 +1,74 @@
+@import "../../../../base.less";
+@saveBtnHeight: 100px;
+.work-experience-container{
+  background: @white;
+  height: 100%;
+  .work-box{
+    height: calc(100% - @saveBtnHeight - @basePadding);
+    overflow: auto;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .property{
+      padding: @basePadding 0;
+      border-bottom: 1PX solid @baseBorderColor;
+      .txt{
+        width: 160px;
+      }
+      .at-input{
+        flex: 1;
+        margin-left: 0;
+        text-align: right;
+        &::after{
+          border: none;
+        }
+      }
+      .time-box{
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .item{
+          margin: 0 @basePadding;
+        }
+      }
+      .right{
+        .null-tip{
+          color: @basePlaceholderColor;
+        }
+        .right-icon{
+          margin-left: @halfBasePadding;
+        }
+      }
+    }
+  }
+  .btn-box{
+    border-top: 1PX solid @baseBorderColor;
+    background: @white;
+    box-sizing: border-box;
+    padding: @halfBasePadding @basePadding;
+    .delete-btn{
+      flex: 1;
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: @baseBtnBgColor;
+      color: @black;
+      border-radius: 10px;
+      margin-right: @basePadding;
+    }
+    .save-btn{
+      flex: 3;
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      border-radius: 10px;
+      background: @baseColor;
+      padding: @halfBasePadding 0;
+      color: @white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

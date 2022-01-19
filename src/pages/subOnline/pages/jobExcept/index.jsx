@@ -35,7 +35,7 @@ export default function JobExcept(){
   };
   const chooseIndustry = () => {
     Taro.navigateTo({
-      url: '/pages/subOnline/pages/industryType/index?industry=' + JSON.stringify(industry)
+      url: '/pages/subOnline/pages/industryType/index?industry=' + JSON.stringify(industry) + '&type=except'
     })
   };
   const changeSalary = salaryValue => {
@@ -139,7 +139,7 @@ export default function JobExcept(){
         <View className='property flex-between' onClick={e => chooseExceptStation()}>
           <Text>期望职位</Text>
           <View className='right'>
-            {exceptStation === '' ? <Text className='null-tip'>请选择期望职位</Text> : exceptStation}
+            {exceptStation === '' ? <Text className='null-tip'>请选择</Text> : exceptStation}
             <AtIcon className='right-icon' value='chevron-right' size='20' color='#787878'/>
           </View>
         </View>
@@ -160,7 +160,7 @@ export default function JobExcept(){
           <View className='property flex-between'>
             <Text>薪资要求</Text>
             <View className='right'>
-              {salary === '' ? <Text className='null-tip'>请选择薪资要求</Text> : salary}
+              {salary === '' ? <Text className='null-tip'>请选择</Text> : salary}
               <AtIcon className='right-icon' value='chevron-right' size='20' color='#787878'/>
             </View>
           </View>

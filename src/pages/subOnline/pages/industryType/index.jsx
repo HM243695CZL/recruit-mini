@@ -7,6 +7,7 @@ import './index.less'
 
 export default function IndustryType(){
   const router = useRouter();
+  const [type, setType] = useState('');
   const [industryList, setIndustryList] = useState([
     {
       id: 1,
@@ -71,40 +72,52 @@ export default function IndustryType(){
     setIndustryList([...industryList]);
   };
   const clickAccordionItem = (data, ele) => {
-    let selectedTextArr = [];
-    selectedIndustry.map(e => {
-      selectedTextArr.push((e.value));
-    });
-    if (selectedTextArr.includes(ele.value)) {
-      // 删除选中
-      setSelectedIndustry([...selectedIndustry.filter(e => e.value !== ele.value)]);
-      industryList.map(item => {
-        if (item.id === data.id) {
-          item.selectedItem.map((e, index) => {
-            if (e.value === ele.value) {
-              item.selectedItem.splice(index, 1);
-            }
-          })
-        }
+    if (type === 'except') {
+      let selectedTextArr = [];
+      selectedIndustry.map(e => {
+        selectedTextArr.push((e.value));
       });
-      setIndustryList([...industryList]);
-    } else {
-      // 添加选中
-      if (selectedIndustry.length === 3) {
-        Taro.showToast({
-          title: '最多选择三个',
-          icon: 'none',
-          duration: 2000
+      if (selectedTextArr.includes(ele.value)) {
+        // 删除选中
+        setSelectedIndustry([...selectedIndustry.filter(e => e.value !== ele.value)]);
+        industryList.map(item => {
+          if (item.id === data.id) {
+            item.selectedItem.map((e, index) => {
+              if (e.value === ele.value) {
+                item.selectedItem.splice(index, 1);
+              }
+            })
+          }
         });
-        return false;
-      }
-      setSelectedIndustry([...selectedIndustry, {...ele, parentId: data.id}]);
-      industryList.map(item => {
-        if (item.id === data.id) {
-          item.selectedItem.push(ele);
+        setIndustryList([...industryList]);
+      } else {
+        // 添加选中
+        if (selectedIndustry.length === 3) {
+          Taro.showToast({
+            title: '最多选择三个',
+            icon: 'none',
+            duration: 2000
+          });
+          return false;
         }
+        setSelectedIndustry([...selectedIndustry, {...ele, parentId: data.id}]);
+        industryList.map(item => {
+          if (item.id === data.id) {
+            item.selectedItem.push(ele);
+          }
+        });
+        setIndustryList([...industryList]);
+      }
+    } else if (type === 'experience') {
+      setSelectedIndustry([ele]);
+      const pages = Taro.getCurrentPages();
+      const prevPage = pages[pages.length - 2];
+      prevPage.setData({
+        selectedIndustry: [ele]
       });
-      setIndustryList([...industryList]);
+      Taro.navigateBack({
+        delta: 1
+      });
     }
   };
   const deleteSelectedIndustry = data => {
@@ -144,10 +157,11 @@ export default function IndustryType(){
   };
   useDidShow(() => {
     let arr = JSON.parse(router.params.industry);
+    setType(router.params.type);
     industryList.map(item => {
       item.list.map(ele => {
         if (arr.includes(ele.text)){
-          selectedIndustry.push(ele);
+          selectedIndustry.push({...ele, parentId: item.id});
           item.selectedItem.push(ele);
         }
       })
@@ -160,12 +174,13 @@ export default function IndustryType(){
       <View className={
         cx({
           'industry-box': true,
-          'selected-box': selectedIndustry.length > 0
+          'selected-box': selectedIndustry.length > 0,
+          'except-box': type === 'experience'
         })
       }>
         <View className='head'>
-          <View className='title'>期望行业</View>
-          <View className='tip'>请选择行业，最多三个</View>
+          <View className='title'>{type === 'except' ? '期望' : '所在'}行业</View>
+          <View className='tip'>请选择行业，最多{type === 'except' ? '三' : '一'}个</View>
         </View>
         <View className='accordion-box'>
           {
@@ -211,30 +226,32 @@ export default function IndustryType(){
           }
         </View>
       </View>
-      <View className='btn-box'>
-        {
-          selectedIndustry.length > 0 && <View className='selected-item flex-start'>
-            <Text className='tip'>已选</Text>
-            {
-              selectedIndustry.map(item => {
-                return (
-                  <View className='item-list'>
-                    {item.text}
-                    <AtIcon
-                      onClick={e => deleteSelectedIndustry(item)}
-                      className='close-icon' value='close'
-                      size='10' color='#36c1ba' />
-                  </View>
-                )
-              })
-            }
+      {
+        type === 'except' && <View className='btn-box'>
+          {
+            selectedIndustry.length > 0 && <View className='selected-item flex-start'>
+              <Text className='tip'>已选</Text>
+              {
+                selectedIndustry.map(item => {
+                  return (
+                    <View className='item-list'>
+                      {item.text}
+                      <AtIcon
+                        onClick={e => deleteSelectedIndustry(item)}
+                        className='close-icon' value='close'
+                        size='10' color='#36c1ba' />
+                    </View>
+                  )
+                })
+              }
+            </View>
+          }
+          <View className='flex-between'>
+            <View className='clear-btn' onClick={e => clearSelectedIndustry()}>清除</View>
+            <View className='save-btn' onClick={e => clickSaveIndustry()}>保存</View>
           </View>
-        }
-        <View className='flex-between'>
-          <View className='clear-btn' onClick={e => clearSelectedIndustry()}>清除</View>
-          <View className='save-btn' onClick={e => clickSaveIndustry()}>保存</View>
         </View>
-      </View>
+      }
     </View>
   )
 }
