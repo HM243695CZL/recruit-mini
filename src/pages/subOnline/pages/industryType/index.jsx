@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text } from '@tarojs/components';
 import { AtAccordion, AtIcon } from 'taro-ui';
-import Taro, { useRouter } from '@tarojs/taro';
+import Taro, { useRouter, useDidShow } from '@tarojs/taro';
 import cx from 'classnames';
 import './index.less'
 
@@ -142,7 +142,7 @@ export default function IndustryType(){
       delta: 1
     });
   };
-  useEffect(() => {
+  useDidShow(() => {
     let arr = JSON.parse(router.params.industry);
     industryList.map(item => {
       item.list.map(ele => {
@@ -154,7 +154,7 @@ export default function IndustryType(){
     });
     setIndustryList([...industryList]);
     setSelectedIndustry([...selectedIndustry]);
-  }, []);
+  });
   return (
     <View className='industry-type-container'>
       <View className={
