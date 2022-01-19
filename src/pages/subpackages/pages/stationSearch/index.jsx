@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View } from '@tarojs/components'
 import { AtSearchBar, AtTag } from 'taro-ui';
 import Taro, { useDidShow } from '@tarojs/taro'

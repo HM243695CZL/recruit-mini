@@ -13,7 +13,7 @@ export default function JobExcept(){
   const [type, setType] = useState(1);
   const [workCity, setWorkCity] = useState('贵阳');
   const [exceptStation, setExceptStation] = useState('web前端');
-  const [industry, setIndustry] = useState('互联网');
+  const [industry, setIndustry] = useState(['互联网']);
   const [typeList] = useState([
     { value: 1, text: '全职' },
     { value: 0, text: '兼职' },
@@ -33,7 +33,7 @@ export default function JobExcept(){
   };
   const chooseIndustry = () => {
     Taro.navigateTo({
-      url: '/pages/subOnline/pages/industryType/index'
+      url: '/pages/subOnline/pages/industryType/index?industry=' + JSON.stringify(industry)
     })
   };
   useDidShow(() => {
@@ -44,6 +44,13 @@ export default function JobExcept(){
     }
     if (currPage.data.selectedStation) {
       setExceptStation(currPage.data.selectedStation);
+    }
+    if (currPage.data.selectedIndustry) {
+      let arr = [];
+      currPage.data.selectedIndustry.map(item => {
+        arr.push(item.text);
+      });
+      setIndustry(arr);
     }
   });
   return (
@@ -84,7 +91,7 @@ export default function JobExcept(){
         <View className='property flex-between'>
           <Text>期望行业</Text>
           <View className='right' onClick={e => chooseIndustry()}>
-            {industry}
+            {industry.join(' · ')}
             <AtIcon className='right-icon' value='chevron-right' size='20' color='#787878'/>
           </View>
         </View>

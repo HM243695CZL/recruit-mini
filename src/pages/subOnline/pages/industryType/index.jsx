@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text } from '@tarojs/components';
 import { AtAccordion, AtIcon } from 'taro-ui';
+import Taro, { useRouter } from '@tarojs/taro';
+import cx from 'classnames';
 import './index.less'
 
 export default function IndustryType(){
+  const router = useRouter();
   const [industryList, setIndustryList] = useState([
     {
       id: 1,
@@ -11,12 +14,13 @@ export default function IndustryType(){
       opened: false,
       selectedItem: [],
       list: [
-        { text: '电子商务', value: 'elec-commerce' },
-        { text: '游戏', value: 'elec-commerce' },
-        { text: '媒体', value: 'elec-commerce' },
-        { text: '广告营销', value: 'elec-commerce' },
-        { text: '数据服务', value: 'elec-commerce' },
-        { text: '医疗健康', value: 'elec-commerce' },
+        { text: '电子商务', value: 'electrons-commerce' },
+        { text: '游戏', value: 'game' },
+        { text: '媒体', value: 'media' },
+        { text: '广告营销', value: 'advertising-market' },
+        { text: '数据服务', value: 'data-server' },
+        { text: '医疗健康', value: 'medical-health' },
+        { text: '互联网', value: 'network' },
       ]
     },
     {
@@ -26,9 +30,9 @@ export default function IndustryType(){
       selectedItem: [],
       list: [
         { text: '广告/公关/会展', value: 'ad' },
-        { text: '新闻/出版', value: 'ad' },
-        { text: '广播/影视', value: 'ad' },
-        { text: '文化/体育/娱乐', value: 'ad' },
+        { text: '新闻/出版', value: 'news' },
+        { text: '广播/影视', value: 'radio-broadcast' },
+        { text: '文化/体育/娱乐', value: 'culture' },
       ]
     },
     {
@@ -38,10 +42,10 @@ export default function IndustryType(){
       selectedItem: [],
       list: [
         { text: '银行', value: 'bank' },
-        { text: '保险', value: 'bank' },
-        { text: '证券/期货', value: 'bank' },
-        { text: '基金', value: 'bank' },
-        { text: '信托', value: 'bank' },
+        { text: '保险', value: 'insurance' },
+        { text: '证券/期货', value: 'bond' },
+        { text: '基金', value: 'fund' },
+        { text: '信托', value: 'trust' },
       ]
     },
     {
@@ -50,13 +54,14 @@ export default function IndustryType(){
       opened: false,
       selectedItem: [],
       list: [
-        { text: '学前教育', value: 'edu' },
-        { text: '院校', value: 'edu' },
-        { text: '培训机构', value: 'edu' },
-        { text: '学术/科研', value: 'edu' },
+        { text: '学前教育', value: 'preschool-edu' },
+        { text: '院校', value: 'university-and-colleges' },
+        { text: '培训机构', value: 'training-organization' },
+        { text: '学术/科研', value: 'learning' },
       ]
     }
   ]);
+  const [selectedIndustry, setSelectedIndustry] = useState([]);
   const clickAccordion = data => {
     industryList.map(item => {
       if (item.id === data.id) {
@@ -65,9 +70,99 @@ export default function IndustryType(){
     });
     setIndustryList([...industryList]);
   };
+  const clickAccordionItem = (data, ele) => {
+    let selectedTextArr = [];
+    selectedIndustry.map(e => {
+      selectedTextArr.push((e.value));
+    });
+    if (selectedTextArr.includes(ele.value)) {
+      // 删除选中
+      setSelectedIndustry([...selectedIndustry.filter(e => e.value !== ele.value)]);
+      industryList.map(item => {
+        if (item.id === data.id) {
+          item.selectedItem.map((e, index) => {
+            if (e.value === ele.value) {
+              item.selectedItem.splice(index, 1);
+            }
+          })
+        }
+      });
+      setIndustryList([...industryList]);
+    } else {
+      // 添加选中
+      if (selectedIndustry.length === 3) {
+        Taro.showToast({
+          title: '最多选择三个',
+          icon: 'none',
+          duration: 2000
+        });
+        return false;
+      }
+      setSelectedIndustry([...selectedIndustry, {...ele, parentId: data.id}]);
+      industryList.map(item => {
+        if (item.id === data.id) {
+          item.selectedItem.push(ele);
+        }
+      });
+      setIndustryList([...industryList]);
+    }
+  };
+  const deleteSelectedIndustry = data => {
+    selectedIndustry.map((item, index) => {
+      if (item.value === data.value) {
+        selectedIndustry.splice(index, 1);
+      }
+    });
+    setSelectedIndustry([...selectedIndustry]);
+    industryList.map(item => {
+      if (item.id === data.parentId) {
+        item.selectedItem.map((ele, index) => {
+          if (ele.value === data.value) {
+            item.selectedItem.splice(index, 1);
+          }
+        })
+      }
+    });
+    setIndustryList([...industryList]);
+  };
+  const clearSelectedIndustry = () => {
+    setSelectedIndustry([]);
+    industryList.map(item => {
+      item.selectedItem = [];
+    });
+    setIndustryList([...industryList]);
+  };
+  const clickSaveIndustry = () => {
+    const pages = Taro.getCurrentPages();
+    const prevPage = pages[pages.length - 2];
+    prevPage.setData({
+      selectedIndustry
+    });
+    Taro.navigateBack({
+      delta: 1
+    });
+  };
+  useEffect(() => {
+    let arr = JSON.parse(router.params.industry);
+    industryList.map(item => {
+      item.list.map(ele => {
+        if (arr.includes(ele.text)){
+          selectedIndustry.push(ele);
+          item.selectedItem.push(ele);
+        }
+      })
+    });
+    setIndustryList([...industryList]);
+    setSelectedIndustry([...selectedIndustry]);
+  }, []);
   return (
     <View className='industry-type-container'>
-      <View className='industry-box'>
+      <View className={
+        cx({
+          'industry-box': true,
+          'selected-box': selectedIndustry.length > 0
+        })
+      }>
         <View className='head'>
           <View className='title'>期望行业</View>
           <View className='tip'>请选择行业，最多三个</View>
@@ -80,8 +175,11 @@ export default function IndustryType(){
                   open={item.opened}
                   isAnimation={false}
                   hasBorder={item.opened}
-                  title={<View>
+                  title={<View className='accordion-head flex-between'>
                     {item.title}
+                    {
+                      item.selectedItem.length > 0 && <View className='selected-item-count'>{item.selectedItem.length}</View>
+                    }
                   </View>}
                   onClick={e => clickAccordion(item)}
                 >
@@ -89,9 +187,18 @@ export default function IndustryType(){
                     <View className='list-type'>
                       {
                         item.list.map(ele => {
+                          let arr = [];
+                          selectedIndustry.map(e => {
+                            arr.push(e.value);
+                          });
                           return (
-                            <View className='type'>
-                              <View className='item'>{ele.text}</View>
+                            <View className='type' onClick={e => clickAccordionItem(item, ele)}>
+                              <View className={
+                                cx({
+                                  'item': true,
+                                  'active': arr.includes(ele.value)
+                                })
+                              }>{ele.text}</View>
                             </View>
                           )
                         })
@@ -105,16 +212,27 @@ export default function IndustryType(){
         </View>
       </View>
       <View className='btn-box'>
-        <View className='selected-item flex-start'>
-          <Text className='tip'>已选</Text>
-          <View className='item-list'>
-            互联网
-            <AtIcon className='close-icon' value='close' size='10' color='#36c1ba' />
+        {
+          selectedIndustry.length > 0 && <View className='selected-item flex-start'>
+            <Text className='tip'>已选</Text>
+            {
+              selectedIndustry.map(item => {
+                return (
+                  <View className='item-list'>
+                    {item.text}
+                    <AtIcon
+                      onClick={e => deleteSelectedIndustry(item)}
+                      className='close-icon' value='close'
+                      size='10' color='#36c1ba' />
+                  </View>
+                )
+              })
+            }
           </View>
-        </View>
+        }
         <View className='flex-between'>
-          <View className='clear-btn'>清除</View>
-          <View className='save-btn'>保存</View>
+          <View className='clear-btn' onClick={e => clearSelectedIndustry()}>清除</View>
+          <View className='save-btn' onClick={e => clickSaveIndustry()}>保存</View>
         </View>
       </View>
     </View>
