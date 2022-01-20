@@ -15,7 +15,7 @@ export default function ProjectDescription(){
     const btnRef = Taro.createSelectorQuery().select('#btnRefProject').boundingClientRect();
     container.exec(function (res) {
       btnRef.exec(function (btnRes) {
-        const height = res[0].height - btnRes[0].height - 30 * 2;
+        const height = res[0].height - btnRes[0].height - 30 * 2 - 20;
         setTextareaHeight(height * 2);
       })
     })
