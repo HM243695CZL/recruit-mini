@@ -14,6 +14,7 @@ export default function WorkExperience(){
   const [endTime, setEndTime] = useState('至今');
   const [stationName, setStationName] = useState('web前端');
   const [workContent, setWorkContent] = useState('工作内容是指劳动者具体从事什么种类或劳动的内容，是劳动合同确定劳动者应当履行劳动义务的主要内容');
+  const [skillNumber, setSkillNumber] = useState(3);
   const [timeList, setTimeList] = useState([
     [], []
   ]);
@@ -71,6 +72,11 @@ export default function WorkExperience(){
   const clickWorkContent = () => {
     Taro.navigateTo({
       url: '/pages/subOnline/pages/workContent/index'
+    })
+  };
+  const changeSkillNumber = () => {
+    Taro.navigateTo({
+      url: '/pages/subOnline/pages/skillList/index'
     })
   };
   useDidShow(() => {
@@ -161,6 +167,13 @@ export default function WorkExperience(){
           <Text className='txt'>工作内容</Text>
           <View className='right text-over'>
             <View className='content text-over'>{workContent}</View>
+            <AtIcon className='right-icon' value='chevron-right' size='20' color='#787878'/>
+          </View>
+        </View>
+        <View className='property flex-between' onClick={e => changeSkillNumber()}>
+          <Text className='txt'>拥有技能</Text>
+          <View className='right'>
+            {skillNumber}个技能
             <AtIcon className='right-icon' value='chevron-right' size='20' color='#787878'/>
           </View>
         </View>

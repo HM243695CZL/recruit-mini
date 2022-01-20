@@ -36,6 +36,7 @@ export default {
         'pages/stationType/index',
         'pages/industryType/index',
         'pages/workContent/index',
+        'pages/skillList/index',
       ]
     }
   ],

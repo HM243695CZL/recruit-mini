@@ -1,0 +1,150 @@
+@import "../../../../base.less";
+@saveBtnHeight: 100px;
+.skill-list-container{
+  background: @white;
+  height: 100%;
+  .skill-box{
+    height: calc(100% - @saveBtnHeight - @basePadding);
+    overflow: auto;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .head{
+      margin-bottom: @basePadding;
+      .title{
+        font-weight: 700;
+        font-size: 44px;
+        margin-bottom: @halfBasePadding;
+      }
+      .tip{
+        color: @baseTextColor;
+      }
+    }
+    .selected-item-box{
+      font-size: 24px;
+      margin-bottom: @halfBasePadding;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .tip{
+        width: 80px;
+        margin-right: @halfBasePadding;
+      }
+      .selected-item{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        .item-list{
+          padding: 10px;
+          border-radius: 10px;
+          background: #ebfafd;
+          color: @baseColor;
+          margin-right: @halfBasePadding;
+          margin-bottom: @halfBasePadding;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-wrap: wrap;
+          .close-icon{
+            margin-left: @halfBasePadding;
+          }
+        }
+      }
+    }
+    .selectable-box{
+      margin-bottom: @basePadding;
+      .selectable-list{
+        .list-title{
+          font-weight: 700;
+          padding: @halfBasePadding 0;
+        }
+        .type-list{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-wrap: wrap;
+          .type{
+            padding: @halfBasePadding;
+            box-sizing: border-box;
+            .item{
+              background: @baseBtnBgColor;
+              padding: @halfBasePadding;
+              border-radius: 10px;
+              border: 1PX solid transparent;
+              &.active{
+                border: 1PX solid @baseColor;
+                color: @baseColor;
+                background: #ebfafd;
+              }
+            }
+          }
+        }
+      }
+    }
+    .custom-tag-box{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      .type{
+        padding: @halfBasePadding;
+        box-sizing: border-box;
+        .item{
+          background: @baseBtnBgColor;
+          padding: @halfBasePadding;
+          border-radius: 10px;
+          border: 1PX solid transparent;
+          &.active{
+            border: 1PX solid @baseColor;
+            color: @baseColor;
+            background: @white;
+          }
+        }
+      }
+      .custom-btn{
+        border-radius: 10px;
+        padding: @halfBasePadding @basePadding;
+        color: @baseColor;
+        border: 1PX solid @baseColor;
+        background: @white;
+        .add-icon{
+          margin-right: @halfBasePadding;
+        }
+      }
+    }
+  }
+  .btn-box{
+    background: @white;
+    box-sizing: border-box;
+    padding: @halfBasePadding @basePadding;
+    .save-btn{
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      border-radius: 10px;
+      background: @baseColor;
+      padding: @halfBasePadding 0;
+      color: @white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .tag-modal-box{
+    .modal-title{
+      margin-bottom: @basePadding;
+    }
+    .at-input{
+      margin-left: 0;
+      &::after{
+        border: none;
+      }
+    }
+  }
+  .at-modal__action {
+    button{
+      &:last-child{
+        color: @baseColor;
+      }
+    }
+  }
+}
