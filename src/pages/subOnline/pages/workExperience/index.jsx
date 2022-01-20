@@ -13,8 +13,8 @@ export default function WorkExperience(){
   const [endTimeVal, setEndTimeVal] = useState([0, 0]);
   const [endTime, setEndTime] = useState('至今');
   const [stationName, setStationName] = useState('web前端');
-  const [workContent, setWorkContent] = useState('工作内容是指劳动者具体从事什么种类或劳动的内容，是劳动合同确定劳动者应当履行劳动义务的主要内容');
-  const [skillNumber, setSkillNumber] = useState(3);
+  const [workContent] = useState('工作内容是指劳动者具体从事什么种类或劳动的内容，是劳动合同确定劳动者应当履行劳动义务的主要内容');
+  const [skillNumber] = useState(3);
   const [timeList, setTimeList] = useState([
     [], []
   ]);
@@ -136,7 +136,7 @@ export default function WorkExperience(){
               range={timeList}
               value={startTimeVal}
               onChange={e => changeTime(e, 'start')}
-              onColumnChange = {e => changeTimeColumn(e, 'start')}
+              onColumnChange={e => changeTimeColumn(e, 'start')}
             >
               <View className='item'>
                 {startTime}
@@ -148,7 +148,7 @@ export default function WorkExperience(){
               range={timeList}
               value={endTimeVal}
               onChange={e => changeTime(e, 'end')}
-              onColumnChange = {e => changeTimeColumn(e, 'end')}
+              onColumnChange={e => changeTimeColumn(e, 'end')}
             >
               <View className='item'>
                 {endTime}

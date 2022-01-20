@@ -37,6 +37,7 @@ export default {
         'pages/industryType/index',
         'pages/workContent/index',
         'pages/skillList/index',
+        'pages/projectDescription/index',
       ]
     }
   ],

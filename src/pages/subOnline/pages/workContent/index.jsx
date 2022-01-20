@@ -12,7 +12,7 @@ export default function WorkContent(){
   };
   useReady(() => {
     const container = Taro.createSelectorQuery().select('#workContentBox').boundingClientRect();
-    const btnRef = Taro.createSelectorQuery().select('#btnRef').boundingClientRect();
+    const btnRef = Taro.createSelectorQuery().select('#btnRefWork').boundingClientRect();
     container.exec(function (res) {
       btnRef.exec(function (btnRes) {
         const height = res[0].height - btnRes[0].height - 30 * 2;
@@ -33,7 +33,7 @@ export default function WorkContent(){
           height={textareaHeight}
         />
       </View>
-      <View className='btn-box' id='btnRef'>
+      <View className='btn-box' id='btnRefWork'>
         <View className='save-btn'>保存</View>
       </View>
     </View>

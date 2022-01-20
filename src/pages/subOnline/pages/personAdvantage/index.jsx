@@ -13,7 +13,7 @@ export default function PersonAdvantage(){
   useReady(() => {
     const container = Taro.createSelectorQuery().select('#personAdvantageBox').boundingClientRect();
     const advantageHeadRef = Taro.createSelectorQuery().select('#advantageHeadRef').boundingClientRect();
-    const btnRef = Taro.createSelectorQuery().select('#btnRef').boundingClientRect();
+    const btnRef = Taro.createSelectorQuery().select('#btnRefPerson').boundingClientRect();
     let heightObj = {};
     container.exec(function (res) {
       heightObj.containerH = res[0].height;
@@ -47,7 +47,7 @@ export default function PersonAdvantage(){
           />
         </View>
       </View>
-      <View className='btn-box' id='btnRef'>
+      <View className='btn-box' id='btnRefPerson'>
         <View className='save-btn'>保存</View>
       </View>
     </View>
