@@ -35,6 +35,7 @@ export default {
         'pages/onlineResume/index',
         'pages/stationType/index',
         'pages/industryType/index',
+        'pages/workContent/index',
       ]
     }
   ],

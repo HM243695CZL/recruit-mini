@@ -12,6 +12,8 @@ export default function WorkExperience(){
   const [startTimeVal, setStartTimeVal] = useState([0, 0]);
   const [endTimeVal, setEndTimeVal] = useState([0, 0]);
   const [endTime, setEndTime] = useState('至今');
+  const [stationName, setStationName] = useState('web前端');
+  const [workContent, setWorkContent] = useState('工作内容是指劳动者具体从事什么种类或劳动的内容，是劳动合同确定劳动者应当履行劳动义务的主要内容');
   const [timeList, setTimeList] = useState([
     [], []
   ]);
@@ -61,6 +63,16 @@ export default function WorkExperience(){
       setTimeList([...timeList]);
     }
   };
+  const changeStationName = () => {
+    Taro.navigateTo({
+      url: '/pages/subOnline/pages/stationType/index'
+    })
+  };
+  const clickWorkContent = () => {
+    Taro.navigateTo({
+      url: '/pages/subOnline/pages/workContent/index'
+    })
+  };
   useDidShow(() => {
     Taro.setNavigationBarTitle({
       title: (router.params.type === 'add' ? '添加' : '编辑') + '工作经历'
@@ -73,6 +85,9 @@ export default function WorkExperience(){
         arr.push(item.text);
       });
       setIndustry(arr);
+    }
+    if (currPage.data.selectedStation) {
+      setStationName(currPage.data.selectedStation);
     }
     let startYearArr = [];
     let startMonthArr = [];
@@ -133,6 +148,20 @@ export default function WorkExperience(){
                 {endTime}
               </View>
             </Picker>
+          </View>
+        </View>
+        <View className='property flex-between' onClick={e => changeStationName()}>
+          <Text className='txt'>职位名称</Text>
+          <View className='right'>
+            {stationName}
+            <AtIcon className='right-icon' value='chevron-right' size='20' color='#787878'/>
+          </View>
+        </View>
+        <View className='property flex-between' onClick={e => clickWorkContent()}>
+          <Text className='txt'>工作内容</Text>
+          <View className='right text-over'>
+            <View className='content text-over'>{workContent}</View>
+            <AtIcon className='right-icon' value='chevron-right' size='20' color='#787878'/>
           </View>
         </View>
       </View>

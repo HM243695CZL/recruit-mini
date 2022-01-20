@@ -87,7 +87,7 @@ export default function JobExcept(){
         endSalaryArr.push(i + 'K');
       }
     } else {
-      for (let i = 22; i < 28; i ++) {
+      for (let i = parseInt(salary); i < 28; i ++) {
         endSalaryArr.push(i + 'K');
       }
     }
