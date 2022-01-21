@@ -1,0 +1,67 @@
+@import "../../../../base.less";
+@saveBtnHeight: 100px;
+.edu-experience-container{
+  background: @white;
+  height: 100%;
+  .edu-box{
+    height: calc(100% - @saveBtnHeight - @basePadding);
+    overflow: auto;
+    padding: @basePadding;
+    box-sizing: border-box;
+    .head{
+      margin-bottom: @basePadding;
+      .title{
+        font-weight: 700;
+        font-size: 44px;
+        margin-bottom: @halfBasePadding;
+      }
+      .tip{
+        color: @baseTextColor;
+      }
+    }
+    .property{
+      padding: @basePadding 0;
+      border-bottom: 1PX solid @baseBorderColor;
+      .at-input{
+        margin-left: 0;
+        text-align: right;
+        .at-input__input{
+          padding-right: 0;
+        }
+        &::after{
+          border: none;
+        }
+      }
+    }
+  }
+  .btn-box{
+    border-top: 1PX solid @baseBorderColor;
+    background: @white;
+    box-sizing: border-box;
+    padding: @halfBasePadding @basePadding;
+    .delete-btn{
+      flex: 1;
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: @baseBtnBgColor;
+      color: @black;
+      border-radius: 10px;
+      margin-right: @basePadding;
+    }
+    .save-btn{
+      flex: 3;
+      box-sizing: border-box;
+      height: @saveBtnHeight;
+      border-radius: 10px;
+      background: @baseColor;
+      padding: @halfBasePadding 0;
+      color: @white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

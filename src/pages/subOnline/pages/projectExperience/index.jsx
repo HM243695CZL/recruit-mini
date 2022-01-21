@@ -122,7 +122,7 @@ export default function ProjectExperience(){
               range={timeList}
               value={endTimeVal}
               onChange={e => changeTime(e, 'end')}
-              onColumnChange={e => changeTimeColumn(e, 'start')}
+              onColumnChange={e => changeTimeColumn(e, 'end')}
             >
               <View className='item'>{endTime}</View>
             </Picker>
