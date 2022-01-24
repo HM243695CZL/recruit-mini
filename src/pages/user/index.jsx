@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {Image, View, Text} from '@tarojs/components'
-import {AtIcon} from 'taro-ui';
+import {Image, View, Text, Button} from '@tarojs/components'
+import {AtIcon, AtModal, AtModalContent, AtModalAction } from 'taro-ui';
 import Taro from '@tarojs/taro';
 import './index.less'
 
@@ -13,16 +13,28 @@ export default function User() {
   const [iconList] = useState([
     { icon: 'star', text: '我的收藏', value: 'collection' },
     { icon: 'alert-circle', text: '意见反馈', value: 'advise' },
+    { icon: 'user', text: '切换为求职者', value: ''}
   ]);
+  const [isOpened, setIsOpened] = useState(false);
   const clickHeadCard = () => {
     Taro.navigateTo({
       url: '/pages/subpackages/pages/online/index'
     })
   };
   const clickTab = data => {
-    Taro.navigateTo({
-      url: `/pages/subpackages/pages/${data.value}/index`
-    })
+    if (data.value === '') {
+      setIsOpened(true);
+    } else {
+      Taro.navigateTo({
+        url: `/pages/subpackages/pages/${data.value}/index`
+      })
+    }
+  };
+  const closeModal = () => {
+    setIsOpened(false);
+  };
+  const clickConfirm = () => {
+    setIsOpened(false);
   };
   return (
     <View className='user-container'>
@@ -69,6 +81,20 @@ export default function User() {
       <View className='technical-support'>
         HM243695CZL提供技术支持
       </View>
+      <AtModal
+        isOpened={isOpened}
+        closeOnClickOverlay={false}
+      >
+        <AtModalContent>
+          <View className='box'>
+            即将打开“招聘者”小程序
+          </View>
+        </AtModalContent>
+        <AtModalAction>
+          <Button onClick={e => closeModal()}>取消</Button>
+          <Button onClick={e => clickConfirm()}>允许</Button>
+        </AtModalAction>
+      </AtModal>
     </View>
   )
 }
