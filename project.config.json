@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "yyx",
-  "description": "岩鱼香小程序",
+  "projectname": "recruit-mini",
+  "description": "招聘小程序",
   "appid": "wx8bf84902e3987b1c",
   "setting": {
     "urlCheck": true,

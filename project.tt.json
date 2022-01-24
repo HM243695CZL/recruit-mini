@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "yyx",
+  "projectname": "recruit-mini",
   "appid": "touristappid",
   "setting": {
     "es6": false,
