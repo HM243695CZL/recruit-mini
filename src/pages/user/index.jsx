@@ -13,7 +13,7 @@ export default function User() {
   const [iconList] = useState([
     { icon: 'star', text: '我的收藏', value: 'collection' },
     { icon: 'alert-circle', text: '意见反馈', value: 'advise' },
-    { icon: 'user', text: '切换为求职者', value: ''}
+    { icon: 'user', text: '切换为招聘者', value: ''}
   ]);
   const [isOpened, setIsOpened] = useState(false);
   const clickHeadCard = () => {
