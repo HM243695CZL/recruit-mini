@@ -86,7 +86,7 @@ export default function User() {
         closeOnClickOverlay={false}
       >
         <AtModalContent>
-          <View className='box'>
+          <View className='modal-box'>
             即将打开“招聘者”小程序
           </View>
         </AtModalContent>

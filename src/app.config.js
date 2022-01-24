@@ -1,5 +1,3 @@
-import { navList } from './custom';
-const flag = 'admin'; // admin normal
 export default {
   pages: [
     'pages/index/index',
@@ -44,7 +42,26 @@ export default {
   tabBar: {
     color: '#000',
     selectedColor: '#ff6146',
-    list: flag === 'admin' ? navList : navList.filter(ele => ele.type !== 'admin')
+    list: [
+      {
+        iconPath: 'static/img/home.png',
+        selectedIconPath: 'static/img/home-select.png',
+        pagePath: 'pages/index/index',
+        text: '找工作'
+      },
+      {
+        iconPath: 'static/img/category.png',
+        selectedIconPath: 'static/img/category-select.png',
+        pagePath: 'pages/recruit/index',
+        text: '我要招聘'
+      },
+      {
+        iconPath: 'static/img/user.png',
+        selectedIconPath: 'static/img/user-select.png',
+        pagePath: 'pages/user/index',
+        text: '个人信息'
+      }
+    ]
   },
   window: {
     backgroundTextStyle: 'light',
