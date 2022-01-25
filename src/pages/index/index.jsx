@@ -12,6 +12,11 @@ export default function Index(props) {
       url: '/pages/subpackages/pages/stationSearch/index'
     })
   };
+  const changeJobExcept = () => {
+    Taro.navigateTo({
+      url: '/pages/subOnline/pages/jobExcept/index?type=edit'
+    })
+  };
   return (
     <View className='index-container'>
       <View className='search-box' onClick={showSearchInfo}>
@@ -21,7 +26,7 @@ export default function Index(props) {
         </View>
       </View>
       <View className='content-box'>
-        <View className='station-head flex-between'>
+        <View className='station-head flex-between' onClick={changeJobExcept}>
           <View className='station-name'>web前端</View>
           <AtIcon value='edit' size={20} color={'#787878'} />
         </View>

@@ -1,11 +1,53 @@
 import React, { useState } from 'react';
-import { View, Text, Image } from '@tarojs/components'
+import { View, Text, Image, Map, CoverView } from '@tarojs/components'
 import {AtIcon, AtTag } from 'taro-ui';
 import Taro from '@tarojs/taro';
 import './index.less'
 export default function StationInfo(){
   const [dutyList, setDutyList] = useState([1, 2, 3]);
   const [list, setList] = useState([1, 2, 3]);
+  const customMarkers = [
+    {
+      id: 2,
+      latitude: 23.097994,
+      longitude: 113.32352,
+      customCallout: {
+        anchorY: 0,
+        anchorX: 0,
+        display: 'ALWAYS',
+      },
+    },
+    {
+      id: 3,
+      latitude: 23.096994,
+      longitude: 113.32452,
+      customCallout: {
+        anchorY: 0,
+        anchorX: 0,
+        display: 'ALWAYS',
+      }
+    }
+  ];
+  const mapMarkers = [
+    // ...customMarkers,
+    {
+      id: 1,
+      latitude: 23.096994,
+      longitude: 113.324520,
+      callout: {
+        content: '某某公司',
+        color: '#ff0000',
+        fontSize: 14,
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#000000',
+        bgColor: '#fff',
+        padding: 5,
+        display: 'ALWAYS',
+        textAlign: 'center',
+      }
+    }
+  ];
   const clickCommunicate = () => {
     Taro.navigateTo({
       url: '/pages/subpackages/pages/communicateRecord/index'
@@ -97,7 +139,24 @@ export default function StationInfo(){
           </View>
         </View>
         <View className='map-box'>
-          地图
+          <Map
+            setting={{}}
+            markers={mapMarkers}
+            latitude={23.096994}
+            longitude={113.324520}
+            style={{ height: '180px', width: '100%' }}
+          >
+            <CoverView slot='callout'>
+              {
+                customMarkers.map(item => (
+                  /** 自定义样式的 callout */
+                  <CoverView marker-id={item.id} key={item.id} >
+                    <View>导航{item.id}</View>
+                  </CoverView>
+                ))
+              }
+            </CoverView>
+          </Map>
         </View>
       </View>
       <AppointBox />
