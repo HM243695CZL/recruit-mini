@@ -1,7 +1,6 @@
 export default {
   pages: [
     'pages/index/index',
-    'pages/recruit/index',
     'pages/user/index',
   ],
   subpackages: [
@@ -48,12 +47,6 @@ export default {
         selectedIconPath: 'static/img/home-select.png',
         pagePath: 'pages/index/index',
         text: '找工作'
-      },
-      {
-        iconPath: 'static/img/category.png',
-        selectedIconPath: 'static/img/category-select.png',
-        pagePath: 'pages/recruit/index',
-        text: '我要招聘'
       },
       {
         iconPath: 'static/img/user.png',
